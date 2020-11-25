@@ -11,6 +11,7 @@ const chatController = require('../app/controllers/ChatController');
 
 // Auth route
 router.post('/me', authController.me);
+router.post('/refresh', authController.refresh);
 router.post('/login', authController.login);
 router.post('/logout', authController.logout);
 
@@ -23,8 +24,6 @@ router.get('/chatrooms/:id', chatRoomController.show);
 router.post('/chatrooms/leave', passport.authenticate('jwt', {session: false}), chatRoomController.leave);
 router.post('/chatrooms/join', passport.authenticate('jwt', {session: false}), chatRoomController.join);
 router.post('/chatrooms/create', passport.authenticate('jwt', {session: false}), chatRoomController.create);
-// router.get('/chatrooms', passport.authenticate('jwt', {session: false}), chatRoomController.index);
-// router.get('/chatrooms/:id', passport.authenticate('jwt', {session: false}), chatRoomController.show);
 
 
 module.exports = router;

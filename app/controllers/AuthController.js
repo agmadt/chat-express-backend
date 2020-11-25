@@ -81,6 +81,31 @@ const AuthController = {
     })
   },
 
+  refresh: async (req, res) => {
+
+    const { id } = req.body;
+    
+    const user = await User.findOne({
+      where: {
+        id: id,
+      }
+    });
+
+    const token = jwt.sign({
+      'exp': day().add(1, 'day').unix(),
+      'iat': day().unix(),
+      'sub': user.id,
+    }, process.env.JWT_SECRET);
+
+    user.update({
+      jwtoken: token
+    })
+
+    return res.json({
+      token: user.jwtoken
+    })
+  },
+
   logout: async (req, res) => {
 
     const { id } = req.body;
