@@ -1,0 +1,44 @@
+{
+  "name": "initial-node-setup-agmadt",
+  "version": "1.0.0",
+  "description": "Copied from Admiral Coco",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agmadt/admiral-coco.git"
+  },
+  "keywords": [
+    "nodejs",
+    "test",
+    "express",
+    "javascript"
+  ],
+  "author": "Agam Adhityo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/agmadt/admiral-coco.git/issues"
+  },
+  "homepage": "https://github.com/agmadt/admiral-coco.git#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "child-process-promise": "^2.2.1",
+    "cors": "^2.8.5",
+    "dayjs": "^1.9.6",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.3",
+    "helmet": "^3.14.0",
+    "jsonwebtoken": "^8.5.1",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "pg": "^7.12.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.15.1",
+    "sequelize-cli": "^4.1.1",
+    "uuid": "^8.3.1",
+    "ws": "^7.4.0"
+  }
+}
