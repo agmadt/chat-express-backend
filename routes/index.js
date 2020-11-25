@@ -10,10 +10,11 @@ const chatRoomController = require('../app/controllers/ChatRoomController');
 const chatController = require('../app/controllers/ChatController');
 
 // Auth route
-router.post('/me', authController.me);
-router.post('/refresh', authController.refresh);
 router.post('/login', authController.login);
-router.post('/logout', authController.logout);
+router.post('/logout', passport.authenticate('jwt', {session: false}), authController.logout);
+router.post('/me', passport.authenticate('jwt', {session: false}), authController.me);
+router.post('/refresh', passport.authenticate('jwt', {session: false}), authController.refresh);
+router.post('/invalidate', passport.authenticate('jwt', {session: false}), authController.invalidate);
 
 // Chat route
 router.post('/chats', chatController.store);

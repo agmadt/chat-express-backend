@@ -106,6 +106,25 @@ const AuthController = {
     })
   },
 
+  invalidate: async (req, res) => {
+
+    const { id } = req.body;
+    
+    const user = await User.findOne({
+      where: {
+        id: id,
+      }
+    });
+
+    user.update({
+      jwtoken: null
+    })
+
+    return res.json({
+      message: "Success"
+    })
+  },
+
   logout: async (req, res) => {
 
     const { id } = req.body;
